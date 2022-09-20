@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 from model import create_post, fetch_posts
 
 app = Flask(__name__)
@@ -15,6 +15,10 @@ def homepage():
 
 	posts = fetch_posts()
 	return render_template("index.html", posts=posts)
+
+@app.route("/login", methods=["POST", "GET"])
+def login():
+	return render_template("login.html")
 
 if __name__ == "__main__":
 	app.run()

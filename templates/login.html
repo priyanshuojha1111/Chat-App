@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Threads : Chat for free</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+	<style type="text/css">
+		html, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		.something {
+		 z-index:1;
+		}
+	</style>
+</head>
+<body >
+	<div id="particles-js">
+		<div class="something">
+			<h1> something here </h1>
+		</div>
+	</div>
+</body>
+	<!-- <script src="static/particles.js-master/particles.js"></script>
+	<script src="static/particles.js-master/demo/js/app.js"></script> -->
+
+	<script>
+	    particlesJS.load("particles-js", "{{ url_for('static', filename='particles.json') }}",
+	    function(){
+	    console.log("particles.json has loaded");
+	});
+	</script>
+</html>

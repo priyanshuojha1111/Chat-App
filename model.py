@@ -9,16 +9,25 @@ if not path.exists(db_path):
 	con = sql.connect(db_path)
 	cursor = con.cursor()
 	query = """
-			CREATE TABLE posts (
-				id INTEGER PRIMARY KEY AUTOINCREMENT,
-				name TEXT NOT NULL,
-				post TEXT NOT NULL,
-				datetime TIMESTAMP
+		CREATE TABLE posts (
+			id INTEGER PRIMARY KEY AUTOINCREMENT,
+			name TEXT NOT NULL,
+			post TEXT NOT NULL,
+			datetime TIMESTAMP
 			);
 		"""
 	cursor.execute(query)
-	con.close()
 	
+
+	query = """
+		CREATE TABLE credentials (
+			username TEXT NOT NULL PRIMARY KEY,
+			userpass TEXT NOT NULL
+		);
+	"""
+	cursor.execute(query);
+	con.close()
+
 def create_post(name, content, time):
 	con = sql.connect(db_path)
 	cursor = con.cursor()
@@ -39,3 +48,26 @@ def fetch_posts():
 	posts = cursor.fetchall()
 	con.close()
 	return posts
+
+def register_user(username, userpass):
+	con = sql.connect(db_path)
+	cursor = con.cursor()
+	query = """
+		INSERT INTO credentials (username, userpass) values (?, ?);
+	"""
+	cursor.execute(query, (username, userpass))
+	con.commit()
+	con.close()
+
+def authenticate_user(username, userpass):
+	con = sql.connect(db_path)
+	cursor = con.cursor()
+	query = """
+		SELECT * from credentials where username = ? and userpass = ?;
+	"""
+	cursor.execute(query, (username, userpass))
+	rows = cursor.fetchall()
+	if rows:
+		return True
+
+	return False
