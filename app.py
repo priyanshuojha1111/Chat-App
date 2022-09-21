@@ -28,6 +28,8 @@ def login():
 		if username and password:
 			if authenticate_user(username, password):
 				return redirect(url_for("postpage"))
+		else:
+			return redirect(url_for("/"))
 
 if __name__ == "__main__":
 	app.run()
