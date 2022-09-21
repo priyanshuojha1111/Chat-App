@@ -59,6 +59,17 @@ def register_user(username, userpass):
 	con.commit()
 	con.close()
 
+def fetch_users():
+	con = sql.connect(db_path)
+	cursor = con.cursor()
+	query = """
+		SELECT username FROM credentials; 
+	"""
+	cursor.execute(query)
+	con.commit()
+	rows = cursor.fetchall()
+	return rows
+
 def authenticate_user(username, userpass):
 	con = sql.connect(db_path)
 	cursor = con.cursor()
