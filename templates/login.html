@@ -52,6 +52,12 @@
 			height: 340px;
 		}
 
+		label {
+			width: 100px;
+			display: inline-block;
+			padding-left : 10px;
+		}
+
 		.main h3 {
 			text-align: center;
 			margin-bottom: 15px;
@@ -59,17 +65,25 @@
 		}
 
 		.main div {
-			padding: 5px;
+			padding: 7px;
 			margin-right: 5px;
 		}
 
+		a:active, a:visited {
+			color: white;
+			text-align: center;
+		}
+
 		.submit {
-			width: 100%;
+			width: 200px;
 			height: 20px;
 			color: white;
 			border: 1px solid white;
 			outline: none;
 			background: none;
+			margin-left: 20%;
+			margin-bottom: 20px;
+			margin-top: 10px;
 		}
 	</style>
 </head>
@@ -88,13 +102,16 @@
 				<label for="password">Password</label>
 				<input type="password" name="password">
 			</div>
-
-			{% if error %}
-				<p> Username or password is wrong </p>
-			{% endif %}
+			<div class="chk">
+				<input type="checkbox" id="chk" name="checkbox" value="checked" >
+				<label for="chk"> I'm not a robot </label>
+			 </div>
 			
 			<input type="submit" name="submit" class="submit">
 		</form>
+
+		<a href="/registerPage">Not a regsitered User, SignUp Here</a>
+		
 	</div>
 
 </body>
