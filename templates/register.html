@@ -24,6 +24,23 @@
 				background: #000;
 			}
 
+			h2 {
+				color: white;
+			}
+
+			.title {
+				font-size: 48px;
+				padding: 10px;
+				font-family: 'Open Sans', sans-serif;
+			}
+
+			.info {
+				color: white;
+				padding-left: 14px;
+				margin-top: -5px;
+				font-family: 'Open Sans', sans-serif;
+			}
+
 			.main {
 				position: absolute;
 				left: 50%;
@@ -77,7 +94,6 @@
 			#pass{
 				border: 2px solid;
 				border-radius: 4px;
-
 			}
 
 			.login{
@@ -87,9 +103,9 @@
 	   </style>
 	</head>
 	<body id="particles-js">
+		<h2 class="title">Threads</h2>
+		<p class="info">Chat for free, Anonymously</p>
 		<div class="main">
-			<h1 class="h-primary">Threads </h1>
-			<h2 class="h-primary"> Chat for free</h2>
 			<form action="/register" method="POST">
 				<div class="user">
 					<label for="user"> Username: </label>
@@ -98,7 +114,7 @@
 
 				<div class="user">
 					<label for="password"> Password: </label>
-					<input type="password" name="pass" id="pass" placeholder="Enter the Password">
+					<input type="password" name="password" id="pass" placeholder="Enter the Password">
 				</div>
 				<div class="chk">
 					<input type="checkbox" id="chk" name="checkbox" value="checked" >

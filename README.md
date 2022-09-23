@@ -2,8 +2,11 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
 
+----
 
 Threads is as simple chat application made with python and flask where you can chat with other users anonymously. Its currently deployed at : ???
 
@@ -13,11 +16,11 @@ Threads is as simple chat application made with python and flask where you can c
 
 ## Tech Stack
 
-Frontend : HTML, CSS, Javascript
-Backend : Python & Flask
-Database : SQL and SQlite3
-VCS : GIT and GITHUB
-Deployment : Heroku
+Frontend : HTML, CSS, Javascript\
+Backend : Python & Flask\
+Database : SQL and SQlite3\
+VCS : GIT and GITHUB\
+Deployment : Heroku\
 Other Tools : Google Fonts, Particle.js
 
 ## Documentation
@@ -27,8 +30,8 @@ The complete docs are available at this link :
 
 ## Contributors
 
-Developer : [Prajjwal Pathak](https://github.com/pyGuru123)
-Designer : [Jagendra Srivastava](https://github.com/jagendra007)
+Developer : [Prajjwal Pathak](https://github.com/pyGuru123)\
+Designer : [Jagendra Srivastava](https://github.com/jagendra007)\
 Tester : [Priyanshu Ojha](https://github.com/priyanshuojha1111)
 
 ----
