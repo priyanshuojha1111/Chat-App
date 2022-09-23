@@ -54,8 +54,17 @@
 
 		label {
 			width: 100px;
+			font-weight: 550;
 			display: inline-block;
 			padding-left : 10px;
+		}
+
+		.chklbl {
+			width: 120px;
+		}
+
+		#chk {
+			margin-left: 10px;
 		}
 
 		.main h3 {
@@ -65,8 +74,13 @@
 		}
 
 		.main div {
-			padding: 7px;
+			padding: 15px;
 			margin-right: 5px;
+		}
+
+		a {
+			margin-left: 30px;
+			font-size: 16px;
 		}
 
 		a:active, a:visited {
@@ -81,9 +95,15 @@
 			border: 1px solid white;
 			outline: none;
 			background: none;
-			margin-left: 20%;
+			margin-left: 16%;
 			margin-bottom: 20px;
 			margin-top: 10px;
+		}
+
+		.submit:hover {
+			background: white;
+			color: #000;
+			cursor: pointer;
 		}
 	</style>
 </head>
@@ -96,7 +116,7 @@
 			<h3> Login </h3>
 			<div>
 				<label for="username">Username</label>
-				<input type="input" name="username" autocomplete="off">
+				<input type="input" name="username" autocomplete="off" class="username">
 			</div>
 			<div>
 				<label for="password">Password</label>
@@ -104,10 +124,10 @@
 			</div>
 			<div class="chk">
 				<input type="checkbox" id="chk" name="checkbox" value="checked" >
-				<label for="chk"> I'm not a robot </label>
+				<label for="chk" class="chklbl"> I'm not a robot </label>
 			 </div>
 			
-			<input type="submit" name="submit" class="submit">
+			<input type="submit" name="btnsubmit" class="submit">
 		</form>
 
 		<a href="/registerPage">Not a regsitered User, SignUp Here</a>
@@ -117,4 +137,57 @@
 </body>
 	<script src="static/particles.js"></script>
 	<script src="static/app.js"></script>
+
+	<script type="text/javascript">
+		const form = document.querySelector("form");
+		const submit = document.querySelector(".submit");
+		let username = document.querySelector(".username");
+
+		submit.addEventListener("click", function(event){
+			event.preventDefault();
+			if (usernameValidated()) {
+				form.submit();
+		}});
+
+		function usernameValidated() {
+			let usernameOk = true;
+			let usernameVal = username.value;
+
+			if (usernameVal.length == 0) {
+				usernameOk = false;
+			}
+			if(usernameVal.length < 6) {
+				usernameOk = false;
+			}
+			if(usernameVal.includes(" ")) {
+				usernameOk = false;
+			}
+			if(startsWithNum(usernameVal)){
+				usernameOk = false;
+			}
+			// if(alphaNumeric(usernameVal)) {
+			// 	usernameOk = false;
+			// 	console.log("fail");
+			// }
+
+			return usernameOk;
+		}
+
+		function startsWithNum(string) {
+			let onlyLetters = /^[a-zA-Z]+$/;
+			if (onlyLetters.test(string.charAt(0))) {
+				return false
+			}
+
+			return true;
+		}
+
+		function alphaNumeric(string) {
+			let alnum = /^[a-zA-Z0-9]+$/;
+			if (alnum.test(string)) {
+				return true;
+			}
+			return false;
+		}
+	</script>
 </html>
