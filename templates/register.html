@@ -1,48 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thread-Chat</title>
-    <link rel="stylesheet" href="d:\MCA\Web Project\css\chat.css">
-</head>
-<body>
-     <h1  class="h-primary">Threads </h1>
-     <h2  class="h-primary"> Chat for free</h2>
-     <div class="user">
-        <label for="user"> Username: </label>
-        <input type="text" name="username" id="name"   placeholder="Enter the Username">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Thread-Chat</title>
+	   	<style>
+	   		@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-        </div>
+	   		html, * {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				user-select: none;
+			}
 
+			body {
+				height: 100vh;
+			}
 
-     <div class="user">
-        <label for="password"> Password: </label>
-        <input type="password" name="pass" id="pass"   placeholder="Enter the Password">
+			#particles-js {
+				height: 100%;
+				background: #000;
+			}
 
-        </div>
+			.main {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				color: white;
+				border: 2px solid white;
+				border-radius: 3px;
+			}
 
-        <div class="chk">
-            <input type="checkbox" id="chk" name="checkbox" value="checked" >
-            <label for="chk"> I'm not a robot </label>
-            
-     
-             </div>
-        
-            
-            
-        
-     <div >
-       
-        <button  class="button"> Register</button>
+			.h-primary{
+				display: flex;
+				justify-content: center;
+			}
 
-        </div>
+			.button{
+				color: black;
+				width: 150px;
+				padding: 6px 20px;
+				border: 2px solid rgb(73, 47, 47);
+				border-radius :2px;
+				background-color:rgb(255, 254, 252);
+				color: rgb(0, 0, 0);            
+				margin:  27px 100px;
+				font-size: 1rem;
+				cursor: pointer;
+			}
 
-           <div class="login">
-            <a href="">Already registered <br></a>
-            <a href="">login here</a>
-           </div>
-    
-</body>
+			.chk{
+				align-items: center;
+				margin-left:65px;
+			}
+
+			.user{
+				color: rgb(87, 150, 198);
+				display: flex;
+				justify-content: center;
+				height: 50px;
+				padding: 6px 3px;
+				font-size: 20px;
+				font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;   
+				justify-content: center;
+				align-items: center;
+			}
+
+			#name{
+				border: 2px solid;
+				border-radius: 4px;
+			}
+
+			#pass{
+				border: 2px solid;
+				border-radius: 4px;
+
+			}
+
+			.login{
+				margin-left:82px;
+			}
+
+	   </style>
+	</head>
+	<body id="particles-js">
+		<div class="main">
+			<h1 class="h-primary">Threads </h1>
+			<h2 class="h-primary"> Chat for free</h2>
+			<form action="/register" method="POST">
+				<div class="user">
+					<label for="user"> Username: </label>
+					<input type="text" name="username" id="name" placeholder="Enter the Username">
+				</div>
+
+				<div class="user">
+					<label for="password"> Password: </label>
+					<input type="password" name="pass" id="pass" placeholder="Enter the Password">
+				</div>
+				<div class="chk">
+					<input type="checkbox" id="chk" name="checkbox" value="checked" >
+					<label for="chk"> I'm not a robot </label>	
+				</div>
+				<div>  
+					<button  class="button"> Register</button>
+				</div>
+				<div class="login">
+					<a href="">Already registered <br></a>
+					<a href="">login here</a>
+				</div>
+			</form>
+		</div>
+		<script src="static/particles.js"></script>
+		<script src="static/app.js"></script>
+	</body>
 </html>

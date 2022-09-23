@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask import Flask, render_template, request, url_for, redirect
-from model import create_post, fetch_posts, authenticate_user
+from model import create_post, fetch_posts, authenticate_user, register_user
 
 app = Flask(__name__)
 
@@ -34,6 +34,15 @@ def login():
 @app.route("/registerPage", methods=["POST", "GET"])
 def registerPage():
 	return render_template("register.html")
+
+@app.route("/register", methods=["POST"])
+def register():
+	if request.method == "POST":
+		username = request.form.get("username", None)
+		password = request.form.get("password", None)
+		if username and password:
+			register_user(username, password)
+			return render_template("login.html")
 
 if __name__ == "__main__":
 	app.run(debug=True)
