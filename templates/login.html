@@ -112,7 +112,7 @@
 	<p class="info">Chat for free, Anonymously</p>
 
 	<div class="main">
-		<form action="/login" method="POST" onsubmit = "event.preventDefault();">
+		<form action="/login" method="POST">
 			<h3> Login </h3>
 			<div>
 				<label for="username">Username</label>
@@ -127,7 +127,7 @@
 				<label for="chk" class="chklbl"> I'm not a robot </label>
 			 </div>
 			
-			<input type="submit" name="submit" class="submit">
+			<input type="submit" name="btnsubmit" class="submit">
 		</form>
 
 		<a href="/registerPage">Not a regsitered User, SignUp Here</a>
@@ -143,7 +143,11 @@
 		const submit = document.querySelector(".submit");
 		let username = document.querySelector(".username");
 
-		submit.addEventListener("click", usernameValidated);
+		submit.addEventListener("click", function(event){
+			event.preventDefault();
+			if (usernameValidated()) {
+				form.submit();
+		}});
 
 		function usernameValidated() {
 			let usernameOk = true;
@@ -152,29 +156,21 @@
 			if (usernameVal.length == 0) {
 				usernameOk = false;
 			}
-			else if(usernameVal.length < 6) {
+			if(usernameVal.length < 6) {
 				usernameOk = false;
 			}
-			else if(usernameVal.includes(" ")) {
+			if(usernameVal.includes(" ")) {
 				usernameOk = false;
 			}
-			else if(startsWithNum(usernameVal)){
+			if(startsWithNum(usernameVal)){
 				usernameOk = false;
 			}
-			// else if(onlyAlpha(usernameVal)) {
+			// if(alphaNumeric(usernameVal)) {
 			// 	usernameOk = false;
+			// 	console.log("fail");
 			// }
-			// else if(onlyNumeric(usernameVal)) {
-			// 	usernameOk = false;
-			// }
-			else if(alphaNumeric(usernameVal)) {
-				usernameOk = false;
-			}
 
-			if (usernameOk) {
-				// form.submit();
-				console.log(usernameOk);
-			}
+			return usernameOk;
 		}
 
 		function startsWithNum(string) {
@@ -186,22 +182,9 @@
 			return true;
 		}
 
-		// function onlyAlpha(string) {
-		// 	let onlyLetters = /^[a-zA-Z]+$/;
-		// 	if (onlyLetters.test(string)) {
-		// 		return true;
-		// 	}
-
-		// 	return false;
-		// }
-
-		// function onlyNumeric(string) {
-		// 	return !(onlyAlpha(string));
-		// }
-
 		function alphaNumeric(string) {
-			let alphanum = /^[a-zA-Z0-9]+$/;
-			if (alphanum.test(string)) {
+			let alnum = /^[a-zA-Z0-9]+$/;
+			if (alnum.test(string)) {
 				return true;
 			}
 			return false;
