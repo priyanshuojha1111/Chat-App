@@ -1,129 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thread-Chat</title>
-   <style>
-      body{
-    border: 13px solid rgb(26, 36, 5);
-    border-style:double;
-    /* border-style: dashed; */
-    margin: 0px 150px;
-    height: 600px;
-    border-radius: 5px;
-    width: 350px;
-}
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Thread-Chat</title>
+	   	<style>
+	   		@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+	   		html, * {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				user-select: none;
+			}
 
-.h-primary{
-    display: flex;
-    justify-content: center;
-   
-    
-}
+			body {
+				height: 100vh;
+			}
 
+			#particles-js {
+				height: 100%;
+				background: #000;
+			}
 
-.button{
-    color: black;
-    width: 150px;
-    padding: 6px 20px;
-    border: 2px solid rgb(73, 47, 47);
-    border-radius :2px;
-    background-color:rgb(255, 254, 252);
-    color: rgb(0, 0, 0);            
-    margin:  27px 100px;
-    font-size: 1rem;
-    cursor: pointer;
-}
+			.main {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				color: white;
+				border: 2px solid white;
+				border-radius: 3px;
+			}
 
-.chk{
-    align-items: center;
-    margin-left:65px;
-}
+			.h-primary{
+				display: flex;
+				justify-content: center;
+			}
 
+			.button{
+				color: black;
+				width: 150px;
+				padding: 6px 20px;
+				border: 2px solid rgb(73, 47, 47);
+				border-radius :2px;
+				background-color:rgb(255, 254, 252);
+				color: rgb(0, 0, 0);            
+				margin:  27px 100px;
+				font-size: 1rem;
+				cursor: pointer;
+			}
 
+			.chk{
+				align-items: center;
+				margin-left:65px;
+			}
 
+			.user{
+				color: rgb(87, 150, 198);
+				display: flex;
+				justify-content: center;
+				height: 50px;
+				padding: 6px 3px;
+				font-size: 20px;
+				font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;   
+				justify-content: center;
+				align-items: center;
+			}
 
+			#name{
+				border: 2px solid;
+				border-radius: 4px;
+			}
 
+			#pass{
+				border: 2px solid;
+				border-radius: 4px;
 
-.user{
-    color: rgb(87, 150, 198);
-    display: flex;
-    justify-content: center;
-    height: 50px;
-    padding: 6px 3px;
-    /* width: 100%; */
-    font-size: 20px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;   
-    /* border: 3px solid ; */
-    justify-content: center;
-    align-items: center;
+			}
 
-}
+			.login{
+				margin-left:82px;
+			}
 
-/* .button{
-    display: flex;
-    justify-content:center ;
-} */
+	   </style>
+	</head>
+	<body id="particles-js">
+		<div class="main">
+			<h1 class="h-primary">Threads </h1>
+			<h2 class="h-primary"> Chat for free</h2>
+			<form action="/register" method="POST">
+				<div class="user">
+					<label for="user"> Username: </label>
+					<input type="text" name="username" id="name" placeholder="Enter the Username">
+				</div>
 
-#name{
-      
-    border: 2px solid;
-    border-radius: 4px;
-
-}
-#pass{
-      
-    border: 2px solid;
-    border-radius: 4px;
-
-}
-
-.login{
-    
-    margin-left:82px;
-}
-
-   </style>
-</head>
-<body>
-     <h1  class="h-primary">Threads </h1>
-     <h2  class="h-primary"> Chat for free</h2>
-     <div class="user">
-        <label for="user"> Username: </label>
-        <input type="text" name="username" id="name"   placeholder="Enter the Username">
-
-        </div>
-
-
-     <div class="user">
-        <label for="password"> Password: </label>
-        <input type="password" name="pass" id="pass"   placeholder="Enter the Password">
-
-        </div>
-
-        <div class="chk">
-            <input type="checkbox" id="chk" name="checkbox" value="checked" >
-            <label for="chk"> I'm not a robot </label>
-            
-     
-             </div>
-        
-            
-            
-        
-     <div >
-       
-        <button  class="button"> Register</button>
-
-        </div>
-
-           <div class="login">
-            <a href="">Already registered <br></a>
-            <a href="">login here</a>
-           </div>
-    
-</body>
+				<div class="user">
+					<label for="password"> Password: </label>
+					<input type="password" name="pass" id="pass" placeholder="Enter the Password">
+				</div>
+				<div class="chk">
+					<input type="checkbox" id="chk" name="checkbox" value="checked" >
+					<label for="chk"> I'm not a robot </label>	
+				</div>
+				<div>  
+					<button  class="button"> Register</button>
+				</div>
+				<div class="login">
+					<a href="">Already registered <br></a>
+					<a href="">login here</a>
+				</div>
+			</form>
+		</div>
+		<script src="static/particles.js"></script>
+		<script src="static/app.js"></script>
+	</body>
 </html>
