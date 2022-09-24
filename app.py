@@ -1,8 +1,12 @@
 from datetime import datetime
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, session
 from model import create_post, fetch_posts, authenticate_user, register_user
+from flask_session import Session
 
 app = Flask(__name__)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 @app.route("/post", methods=["GET", "POST"])
 def postpage():
@@ -14,7 +18,7 @@ def postpage():
 			create_post(username, content, dt)
 
 	posts = fetch_posts()
-	return render_template("index.html", posts=posts)
+	return render_template("index.html", posts=posts, username=session["username"])
 
 @app.route("/", methods=["POST", "GET"])
 def homepage():
@@ -27,9 +31,12 @@ def login():
 		password = request.form.get("password", None)
 		if username and password:
 			if authenticate_user(username, password):
-				return redirect(url_for("postpage"))
+				session["username"] = username
+				# return redirect(url_for("postpage"), username=session["username"])
+				return render_template("redirectLogin.html", username=session["username"])
 		else:
 			return redirect(url_for("/"))
+
 
 @app.route("/registerPage", methods=["POST", "GET"])
 def registerPage():
