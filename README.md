@@ -39,7 +39,7 @@ Tester : [Priyanshu Ojha](https://github.com/priyanshuojha1111)
 ## How to Run at LocalHost
 
 * Download this project from here [Download Threads](https://downgit.github.io/#/home?url=https://github.com/pyGuru123/Chat-App)
-* Install Flask
+* Install the requirements
 * Run the project from command line using python app.py command
 
 ## Requirements
@@ -48,6 +48,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install followi
 
 ```bash
 pip install flask
+pip install flask-session
 ```
 
 ## Usage

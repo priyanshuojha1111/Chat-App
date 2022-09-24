@@ -107,9 +107,9 @@
 		}
 
 		.msg {
-			color: white;
+			color: red;
 			font-size: 14px;
-			margin-left: 20px;
+			margin-left: 50px;
 		}
 	</style>
 </head>
@@ -151,6 +151,10 @@
 		let username = document.querySelector(".username");
 		let msg = document.querySelector(".msg")
 
+		if ( window.history.replaceState ) {
+		  window.history.replaceState( null, null, window.location.href );
+		}
+
 		submit.addEventListener("click", function(event){
 			event.preventDefault();
 			if (usernameValidated()) {
@@ -160,6 +164,10 @@
 				msg.innerHTML = "Invalid Username or Password"
 			}
 	});
+
+		{% if msg %}
+			msg.innerHTML = "Incorrect Username or Password"
+		{% endif %}
 
 		function usernameValidated() {
 			let usernameOk = true;
