@@ -105,6 +105,12 @@
 			color: #000;
 			cursor: pointer;
 		}
+
+		.msg {
+			color: red;
+			font-size: 14px;
+			margin-left: 50px;
+		}
 	</style>
 </head>
 <body id="particles-js">
@@ -122,6 +128,7 @@
 				<label for="password">Password</label>
 				<input type="password" name="password">
 			</div>
+			<span class="msg"></span>
 			<div class="chk">
 				<input type="checkbox" id="chk" name="checkbox" value="checked" >
 				<label for="chk" class="chklbl"> I'm not a robot </label>
@@ -142,12 +149,25 @@
 		const form = document.querySelector("form");
 		const submit = document.querySelector(".submit");
 		let username = document.querySelector(".username");
+		let msg = document.querySelector(".msg")
+
+		if ( window.history.replaceState ) {
+		  window.history.replaceState( null, null, window.location.href );
+		}
 
 		submit.addEventListener("click", function(event){
 			event.preventDefault();
 			if (usernameValidated()) {
 				form.submit();
-		}});
+			}
+			else {
+				msg.innerHTML = "Invalid Username or Password"
+			}
+	});
+
+		{% if msg %}
+			msg.innerHTML = "Incorrect Username or Password"
+		{% endif %}
 
 		function usernameValidated() {
 			let usernameOk = true;
@@ -165,11 +185,6 @@
 			if(startsWithNum(usernameVal)){
 				usernameOk = false;
 			}
-			// if(alphaNumeric(usernameVal)) {
-			// 	usernameOk = false;
-			// 	console.log("fail");
-			// }
-
 			return usernameOk;
 		}
 

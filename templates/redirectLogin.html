@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Threads : Chat for free</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+		html, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			user-select: none;
+		}
+
+		body {
+			height: 100vh;
+		}
+
+		#particles-js {
+			height: 100%;
+			background: #000;
+		}
+
+		h2 {
+			color: white;
+		}
+
+		.title {
+			font-size: 48px;
+			padding: 10px;
+			font-family: 'Open Sans', sans-serif;
+		}
+
+		.info {
+			color: white;
+			padding-left: 14px;
+			margin-top: -5px;
+			font-family: 'Open Sans', sans-serif;
+		}
+
+		.redirect {
+			color: white;
+			position: absolute;
+			text-align: center;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		.redirect h3{
+			font-size: 30px;
+			font-weight: 600;
+			padding: 15px;
+		}
+
+		.redirect p {
+			font-size: 18px;
+			padding: 4px;
+		}
+	</style>
+</head>
+<body id="particles-js">
+	<h2 class="title">Threads</h2>
+	<p class="info"> Chat for free, Anonymously</p>
+
+	<div class="redirect"> 
+		<h3>Login Successful</h3>
+		<p>You are now logged in as {{username}} </p>
+		<p>Redirecting to Chats</p>
+
+		<form action="/post" method="POST">
+		</form>
+	</div>
+
+	<script src="static/particles.js"></script>
+	<script src="static/app.js"></script>
+	<script type="text/javascript">
+		const form = document.querySelector("form");
+
+		window.setTimeout(function() {
+			form.submit();
+		}, 2000);
+	</script>
+</body>
+</html>
